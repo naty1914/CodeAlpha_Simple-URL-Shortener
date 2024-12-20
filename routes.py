@@ -18,7 +18,8 @@ def shorten_url():
     if request.method == 'POST':
         original_url = request.form.get('original_url')
         short_url = generate_short_url()
-        new_url = URL(short_url=short_url, original_url=original_url)
+        new_url = URL(short_url=short_url, original_url=original_url,
+                      date_created=db.func.current_timestamp())
         db.session.add(new_url)
         db.session.commit()
         return render_template('index.html', short_url=short_url,

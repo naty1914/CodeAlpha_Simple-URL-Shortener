@@ -4,30 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>URL Shortener</title>
-    <style>
-        .center-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            
-        }
+   <style>
+    body{
+        background-color: #f0f0f0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .container{
+        max-width: 500px;
+         width: 100%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-top: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: medium;
+        width: 100%;
+    }
+    .form-group input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    .btn {
+        display: block;
+        background-color: #007bff;
+        margin: 10px 0;
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    .short-url {
         
-    </style>
+        margin-top: 15px;
+        text-align: center;
+    }
+    .short-url a {
+        color: #007bff;
+        text-decoration: none;
+        
+    }
+    .short-url a:hover {
+        text-decoration: underline;
+    }
+    
+    p {
+        margin: 8px;
+    }
+   </style>
+
 </head>
 <body>
-    <div class="center-content">
-    <h1 >URL Shortner</h1>
-    <form method="POST" style="text-align: center;">
-        <label for="original_url">Enter URL:</label>
+    <div class="container">
+    <h1 >Simple URL Shortner</h1>
+    <form method="POST" action="/">
+        <div class="form-group">
+        <label for="original_url">Enter URL to Shorten:</label>
         <input type="url" name="original_url" id="original_url" required>
-        <button type="submit">Shorten</button>
+        </div>
+        
+        <button type="submit" class="btn">Shorten</button>
     </form>
-    
-    {% if short_url %}
-     <p >Short URL:<a href="{{ short_url}}"> {{ short_url }}</a></p>
-     <p >Original URL: <a href="{{ original_url }}">{{ original_url }}</a></p>
-    {% endif %}
+    <div class="short-url">
+        {% if short_url %}
+        <p>Short URL</p>
+        <p ><a href="{{ short_url}}"> {{ short_url }}</a></p>
+        <p>Original URL</p>
+        <p ><a href="{{ original_url }}">{{ original_url }}</a></p>
+       {% endif %}
+    </div>
+   
 </div>
 </body>
 </html>
