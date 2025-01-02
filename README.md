@@ -21,7 +21,7 @@ This project is a simple URL shortener service that shortens long URLs and redir
 1. Clone the repository:
     ```sh
     git clone https://github.com/naty1914/CodeAlpha_Simple-URL-Shortener.git
-    cd Simple-URL-Shortener
+    cd CodeAlpha_Simple-URL-Shortener
     ```
 
 2. Create a virtual environment and activate it:
